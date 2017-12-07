@@ -638,6 +638,14 @@ config MSM_BCL_PERIPHERAL_CTL
 
 config QNS_SYSTEM
         bool "QNS_SYSTEM" 
+        default n
+
+config CHARGE_CONTROL
+	bool "Charge controller for msm arch"
+        default y
+	help
+	  Say Y here to enable charge control interface.
+	  You will be able to manipulate various charging controls.
 
 source "drivers/power/reset/Kconfig"
 

@@ -324,6 +324,10 @@ CONFIG_POWER_SUPPLY=y
 CONFIG_SMB1351_USB_CHARGER=y
 CONFIG_SMB135X_CHARGER=y
 CONFIG_QPNP_SMBCHARGER=y
+<<<<<<< HEAD:arch/arm/configs/apq8053_IoE-perf_defconfig
+=======
+CONFIG_CHARGE_CONTROL=y
+>>>>>>> b690721... Introduce Charge Control module:arch/arm64/configs/capricorn_defconfig
 CONFIG_QPNP_FG=y
 CONFIG_BATTERY_BCL=y
 CONFIG_QPNP_LINEAR_CHARGER=y
