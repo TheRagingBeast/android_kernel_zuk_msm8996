@@ -17,7 +17,7 @@ script:
 - export KBUILD_BUILD_HOST="TheScorpion"
 - mkdir -p out
 - make O=out z2_plus_defconfig
-- make O=out -j128
+- make O=out -j128 --quiet
 - cp ~/trb/out/arch/arm64/boot/Image.gz-dtb ~/trb/lf
 - cd ~/trb/lf
 - zip -r TheRagingBeast_a6000-CIBuild.zip *
