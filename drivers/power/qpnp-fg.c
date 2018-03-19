@@ -625,8 +625,6 @@ struct fg_chip {
 	bool			irqs_enabled;
 	bool			use_last_soc;
 	int			last_soc;
-	int			batt_temp_low_limit;
-	int			batt_temp_high_limit;
 	/* Validating temperature */
 	int			last_good_temp;
 	/* Validating CC_SOC */
