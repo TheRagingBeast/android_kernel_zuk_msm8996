@@ -1,0 +1,28 @@
+
+sudo: required
+
+before_install:
+- sudo apt-get install zip
+- sudo apt install ccache
+- git clone --recursive https://github.com/TheRagingBeast/android_kernel_zuk_msm8996 -b NewTrees ~/trb
+- git clone --recursive https://github.com/krasCGQ/aarch64-linux-android -b opt-gnu-7.x ~/trb/tc
+script:
+- cd ~/trb
+- chmod a+x ~/trb/tc
+- chmod a+x ~/trb/tc/bin
+- sudo chmod -R 755 ~/trb
+- export ARCH=arm64
+- export CROSS_COMPILE=~/trb/tc/bin/aarch64-opt-linux-android-
+- export KBUILD_BUILD_USER="VarunVaishnav"
+- export KBUILD_BUILD_HOST="TheScorpion"
+- mkdir -p out
+- make O=out z2_plus_defconfig
+- make O=out -j128
+- cp ~/trb/out/arch/arm64/boot/Image.gz-dtb ~/trb/lf
+- cd ~/trb/lf
+- zip -r TheRagingBeast_a6000-CIBuild.zip *
+- curl --upload-file ./TheRagingBeast_a6000-CIBuild.zip https://transfer.sh/TheRagingBeast_a6000-CIBuild.zip
+- cd ~/trb/out/arch/arm64/boot/Image.gz-dtb
+- curl --upload-file ./Image.gz-dtb https://transfer.sh/Image.gz-dtb
+- cd ~/trb/lf
+- echo All Done
