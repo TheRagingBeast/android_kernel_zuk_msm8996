@@ -1,4 +1,4 @@
-\/*
+/*
  * Copyright (C) 2013 Davidlohr Bueso <davidlohr.bueso@hp.com>
  *
  *  Based on the shift-and-subtract algorithm for computing integer
