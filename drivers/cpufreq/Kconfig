@@ -117,6 +117,11 @@ config CPU_FREQ_DEFAULT_GOV_ALUCARD
  	bool "alucard"
 	select CPU_FREQ_GOV_ALUCARD
 
+config CPU_FREQ_DEFAULT_GOV_IMPULSE
+	bool "impulse"
+	select CPU_FREQ_GOV_IMPULSE
+	help
+
 config CPU_FREQ_DEFAULT_GOV_BIOSHOCK
 	bool "BioShock"
 	select CPU_FREQ_GOV_BIOSHOCK
@@ -221,6 +226,10 @@ config CPU_FREQ_GOV_INTERACTIVE
 config CPU_FREQ_GOV_ALUCARD
  	tristate "'alucard' cpufreq governor"
 	depends on CPU_FREQ
+
+config CPU_FREQ_GOV_IMPULSE
+	tristate "'impulse' cpufreq policy governor"
+	help
 
 config CPU_FREQ_GOV_DARKNESS
 	tristate "'darkness' cpufreq governor"
