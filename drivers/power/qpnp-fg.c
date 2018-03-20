@@ -627,6 +627,8 @@ struct fg_chip {
 	int			last_soc;
 	/* Validating temperature */
 	int			last_good_temp;
+	int			batt_temp_low_limit;
+	int			batt_temp_high_limit;
 	/* Validating CC_SOC */
 	struct work_struct	cc_soc_store_work;
 	struct fg_wakeup_source	cc_soc_wakeup_source;
@@ -2728,7 +2730,7 @@ out:
 
 // Read the beat count and write it into the beat_count arg;
 // return non-zero on failure.
-static int read_beat(struct fg_chip *chip, u8 *beat_count)
+int read_beat(struct fg_chip *chip, u8 *beat_count)
 {
 	int rc = fg_read(chip, beat_count,
 			 chip->mem_base + MEM_INTF_FG_BEAT_COUNT, 1);
@@ -2750,7 +2752,7 @@ static void check_sanity_work(struct work_struct *work)
 	u8 beat_count;
 	bool tried_once = false;
 
-        // Try one beat check once up-front to avoid the common
+	// Try one beat check once up-front to avoid the common
 	// case where the beat has changed and we don't need to hold
 	// the chip awake.
 	rc = read_beat(chip, &beat_count);
@@ -2768,7 +2770,6 @@ try_again:
 	rc = read_beat(chip, &beat_count);
 	if (rc)
 		goto resched;
-	}
 
 	if (chip->last_beat_count == beat_count) {
 		if (!tried_once) {
