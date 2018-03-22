@@ -1,26 +1,30 @@
-#
-# MemoryStick subsystem configuration
-#
+8_data *priv, u16 reg, u16 *val)
+{
+	unsigned char buf[2];
+	unsigned char ibuf[2];
 
-menuconfig MEMSTICK
-	tristate "Sony MemoryStick card support"
-	help
-	  Sony MemoryStick is a proprietary storage/extension card protocol.
+	tuner_dbg("%s %04x called\n", __func__, reg);
 
-	  If you want MemoryStick support, you should say Y here and also
-	  to the specific driver for your MemoryStick interface.
+	buf[0] = reg >> 8;
+	buf[1] = (unsigned char) reg;
 
-if MEMSTICK
+	if (i2c_send_recv(priv, buf, 2, ibuf, 2) != 2)
+		return -EIO;
 
-config MEMSTICK_DEBUG
-	bool "MemoryStick debugging"
-	help
-	  This is an option for use by developers; most people should
-	  say N here.  This enables MemoryStick core and driver debugging.
+	*val = (ibuf[1]) | (ibuf[0] << 8);
+	return 0;
+}
 
-
-source "drivers/memstick/core/Kconfig"
-
-source "drivers/memstick/host/Kconfig"
-
-endif # MEMSTICK
+#define dump_firm_type(t) 	dump_firm_type_and_int_freq(t, 0)
+static void dump_firm_type_and_int_freq(unsigned int type, u16 int_freq)
+{
+	if (type & BASE)
+		printk("BASE ");
+	if (type & INIT1)
+		printk("INIT1 ");
+	if (type & F8MHZ)
+		printk("F8MHZ ");
+	if (type & MTS)
+		printk("MTS ");
+	if (type & D2620)
+		print
