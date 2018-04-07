@@ -4,8 +4,8 @@ sudo: required
 before_install:
 - sudo apt-get install zip
 - sudo apt install ccache
-- git clone --recursive https://github.com/TheRagingBeast/android_kernel_zuk_msm8996 -b NewTrees ~/trb
-- git clone --recursive https://github.com/krasCGQ/aarch64-linux-android -b opt-gnu-7.x ~/trb/tc
+- git clone --depth=1 https://github.com/TheRagingBeast/android_kernel_zuk_msm8996 -b NewTrees ~/trb
+- git clone --depth=1 https://github.com/krasCGQ/aarch64-linux-android -b opt-gnu-7.x ~/trb/tc
 script:
 - cd ~/trb
 - chmod a+x ~/trb/tc
