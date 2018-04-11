@@ -3,17 +3,13 @@ sudo: required
 before_install:
 - sudo apt-get install zip
 - sudo apt install ccache
+- free -h
 - sudo fallocate -l 2G ~/swapfile
 - sudo chmod 600 ~/swapfile
 - sudo mkswap ~/swapfile
 - sudo swapon ~/swapfile
-- free -h
-- sudo fallocate -l 1G ~/swapfile
-- sudo chmod 600 ~/swapfile
-- sudo mkswap ~/swapfile
-- sudo swapon ~/swapfile
 - sudo sysctl vm.swappiness=100
-- sudo sysctl vm.min_free_kbytes=5000
+- sudo sysctl vm.min_free_kbytes=2000
 - free -h
 - git clone --depth=1 https://github.com/TheRagingBeast/android_kernel_zuk_msm8996 -b NewTrees ~/trb
 - git clone --depth=1 https://github.com/krasCGQ/aarch64-linux-android -b opt-gnu-7.x ~/trb/tc
