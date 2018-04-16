@@ -16,8 +16,6 @@
 #ifndef __U_F_H__
 #define __U_F_H__
 
-#include <linux/usb/gadget.h>
-
 /* Variable Length Array Macros **********************************************/
 #define vla_group(groupname) size_t groupname##__next = 0
 #define vla_group_size(groupname) groupname##__next
@@ -47,6 +45,7 @@
 struct usb_ep;
 struct usb_request;
 
+<<<<<<< HEAD
 /**
  * alloc_ep_req - returns a usb_request allocated by the gadget driver and
  * allocates the request's buffer.
@@ -68,5 +67,10 @@ static inline void free_ep_req(struct usb_ep *ep, struct usb_request *req)
 	kfree(req->buf);
 	usb_ep_free_request(ep, req);
 }
+=======
+struct usb_request *alloc_ep_req(struct usb_ep *ep, int len, int default_len);
+>>>>>>> parent of 9ab3c6f... usb: gadget: define free_ep_req as universal function
 
 #endif /* __U_F_H__ */
+
+
