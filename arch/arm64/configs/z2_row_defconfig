@@ -353,10 +353,6 @@ CONFIG_GPIO_SYSFS=y
 CONFIG_GPIO_QPNP_PIN=y
 CONFIG_SMB1351_USB_CHARGER=y
 CONFIG_QPNP_SMBCHARGER=y
-<<<<<<< HEAD:arch/arm64/configs/z2_row_defconfig
-=======
-CONFIG_CHARGE_CONTROL=y
->>>>>>> b690721... Introduce Charge Control module:arch/arm64/configs/scorpio_defconfig
 CONFIG_QPNP_FG=y
 CONFIG_BATTERY_BCL=y
 CONFIG_MSM_BCL_CTL=y

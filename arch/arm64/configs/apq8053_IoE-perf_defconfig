@@ -315,10 +315,6 @@ CONFIG_GPIO_QPNP_PIN=y
 CONFIG_SMB1351_USB_CHARGER=y
 CONFIG_SMB135X_CHARGER=y
 CONFIG_QPNP_SMBCHARGER=y
-<<<<<<< HEAD:arch/arm64/configs/apq8053_IoE-perf_defconfig
-=======
-CONFIG_CHARGE_CONTROL=y
->>>>>>> b690721... Introduce Charge Control module:arch/arm64/configs/gemini_defconfig
 CONFIG_QPNP_FG=y
 CONFIG_BATTERY_BCL=y
 CONFIG_QPNP_TYPEC=y
