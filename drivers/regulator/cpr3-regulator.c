@@ -4145,11 +4145,7 @@ static struct regulator_ops cpr3_regulator_ops = {
 	.list_corner_voltage	= cpr3_regulator_list_corner_voltage,
 };
 
-<<<<<<< HEAD
 #ifdef CONFIG_VOLTAGE_CONTROL
-=======
-#ifdef CONFIG_REGULATOR_CPR3_VOLTAGE_CONTROL
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 int cpr_regulator_get_ceiling_voltage(struct regulator *regulator,
 		int cori)
 {

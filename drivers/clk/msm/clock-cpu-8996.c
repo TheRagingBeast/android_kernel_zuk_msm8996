@@ -29,13 +29,10 @@
 #include <linux/pm_qos.h>
 #include <linux/cpufreq.h>
 #include <linux/regulator/driver.h>
-<<<<<<< HEAD
 
 #ifdef CONFIG_CPU_VOLTAGE_TABLE
 #include <linux/cpufreq.h>
 #endif
-=======
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 
 #include <asm/cputype.h>
 
@@ -1367,11 +1364,7 @@ static void populate_opp_table(struct platform_device *pdev)
 	    "Failed to add OPP levels for CBF\n");
 }
 
-<<<<<<< HEAD
 #ifdef CONFIG_VOLTAGE_CONTROL
-=======
-#ifdef CONFIG_REGULATOR_CPR3_VOLTAGE_CONTROL
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 extern int cpr_regulator_get_ceiling_voltage(struct regulator *regulator,int cori);
 extern int cpr_regulator_get_floor_voltage(struct regulator *regulator,int cori);
 extern int cpr_regulator_get_last_voltage(struct regulator *regulator,int cori);
@@ -1393,11 +1386,7 @@ ssize_t get_Voltages(char *buf)
 					pwrcl_clk.c.vdd_class->regulator[0],
 					pwrcl_clk.c.vdd_class->vdd_uv[i]);
 		if (uv < 0) return 0;
-<<<<<<< HEAD
 		count += sprintf(buf + count, "pwrcl_Vmax:%lumhz: %d mV\n",
-=======
-		count += sprintf(buf + count, "pwrc_vol_ceiling:%lumhz: %d mV\n",
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 					pwrcl_clk.c.fmax[i] / 1000000,
 					uv / 1000);
 	//Floor
@@ -1405,11 +1394,7 @@ ssize_t get_Voltages(char *buf)
 					pwrcl_clk.c.vdd_class->regulator[0],
 					pwrcl_clk.c.vdd_class->vdd_uv[i]);
 		if (uv < 0) return 0;
-<<<<<<< HEAD
 		count += sprintf(buf + count, "pwrcl_Vmin:%lumhz: %d mV\n",
-=======
-		count += sprintf(buf + count, "pwrc_vol_floor:%lumhz: %d mV\n",
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 					pwrcl_clk.c.fmax[i] / 1000000,
 					uv / 1000);
 	//current
@@ -1417,11 +1402,7 @@ ssize_t get_Voltages(char *buf)
 					pwrcl_clk.c.vdd_class->regulator[0],
 					pwrcl_clk.c.vdd_class->vdd_uv[i]);
 		if (uv < 0) return 0;
-<<<<<<< HEAD
 		count += sprintf(buf + count, "pwrcl_Vcur:%lumhz: %d mV\n",
-=======
-		count += sprintf(buf + count, "pwrc_vol_cur:%lumhz: %d mV\n",
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 					pwrcl_clk.c.fmax[i] / 1000000,
 					uv / 1000);
 	}
@@ -1432,11 +1413,7 @@ ssize_t get_Voltages(char *buf)
 					perfcl_clk.c.vdd_class->vdd_uv[i]);
 		if (uv < 0)
 			return 0;
-<<<<<<< HEAD
 		count += sprintf(buf + count, "perfcl_Vmax:%lumhz: %d mV\n",
-=======
-		count += sprintf(buf + count, "perc_vol_ceiling:%lumhz: %d mV\n",
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 					perfcl_clk.c.fmax[i] / 1000000,
 					uv / 1000);
 	//floor
@@ -1445,11 +1422,7 @@ ssize_t get_Voltages(char *buf)
 					perfcl_clk.c.vdd_class->vdd_uv[i]);
 		if (uv < 0)
 			return 0;
-<<<<<<< HEAD
 		count += sprintf(buf + count, "perfcl_Vmin:%lumhz: %d mV\n",
-=======
-		count += sprintf(buf + count, "perc_vol_floor:%lumhz: %d mV\n",
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 					perfcl_clk.c.fmax[i] / 1000000,
 					uv / 1000);
 	//current
@@ -1458,11 +1431,7 @@ ssize_t get_Voltages(char *buf)
 					perfcl_clk.c.vdd_class->vdd_uv[i]);
 		if (uv < 0)
 			return 0;
-<<<<<<< HEAD
 		count += sprintf(buf + count, "perfcl_Vcur:%lumhz: %d mV\n",
-=======
-		count += sprintf(buf + count, "perc_vol_cur:%lumhz: %d mV\n",
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 					perfcl_clk.c.fmax[i] / 1000000,
 					uv / 1000);
 	}

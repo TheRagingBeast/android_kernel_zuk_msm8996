@@ -805,12 +805,8 @@ static ssize_t show_bios_limit(struct cpufreq_policy *policy, char *buf)
 	return sprintf(buf, "%u\n", policy->cpuinfo.max_freq);
 }
 
-<<<<<<< HEAD
 
 #ifdef CONFIG_VOLTAGE_CONTROL
-=======
-#ifdef CONFIG_REGULATOR_CPR3_VOLTAGE_CONTROL
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 extern ssize_t get_Voltages(char *buf);
 static ssize_t show_UV_mV_table(struct cpufreq_policy *policy, char *buf)
 {
@@ -837,9 +833,6 @@ cpufreq_freq_attr_rw(scaling_min_freq);
 cpufreq_freq_attr_rw(scaling_max_freq);
 cpufreq_freq_attr_rw(scaling_governor);
 cpufreq_freq_attr_rw(scaling_setspeed);
-#ifdef CONFIG_REGULATOR_CPR3_VOLTAGE_CONTROL
-cpufreq_freq_attr_ro(UV_mV_table);
-#endif
 
 #ifdef CONFIG_VOLTAGE_CONTROL
 cpufreq_freq_attr_rw(UV_mV_table);
@@ -857,17 +850,11 @@ static struct attribute *default_attrs[] = {
 	&scaling_driver.attr,
 	&scaling_available_governors.attr,
 	&scaling_setspeed.attr,
-<<<<<<< HEAD
 
 #ifdef CONFIG_VOLTAGE_CONTROL
 	&UV_mV_table.attr,
 #endif
 
-=======
-#ifdef CONFIG_REGULATOR_CPR3_VOLTAGE_CONTROL
-	&UV_mV_table.attr,
-#endif
->>>>>>> 9a935d9... MSM8996: Regulator: Add CPU voltage control(can be change,not read only)
 	NULL
 };
 
